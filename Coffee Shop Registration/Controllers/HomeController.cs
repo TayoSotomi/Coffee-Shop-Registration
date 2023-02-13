@@ -7,7 +7,8 @@ namespace Coffee_Shop_Registration.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-
+        //Allow access to the DB
+        private CoffeeDbContext dbContext = new CoffeeDbContext();
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
@@ -15,17 +16,24 @@ namespace Coffee_Shop_Registration.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            //grabbing all products
+            List<Product> result = dbContext.Products.ToList();
+            return View(result);
         }
-        public IActionResult Form()
+        public IActionResult Registration()
         {
             return View();
+        }
+        public IActionResult ProductDetails(int Id)
+        {
+            Product result = dbContext.Products.FirstOrDefault(p => p.Id == Id);
+            return View(result);
         }
         public IActionResult Result(NewUser N)
         {
             return View(N);
         }
-
+      
         public IActionResult Privacy()
         {
             return View();

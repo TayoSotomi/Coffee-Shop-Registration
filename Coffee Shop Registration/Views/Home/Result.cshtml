@@ -5,5 +5,15 @@
 @{
 }
 
-<h2>Welcome @Model.FirstName</h2>
+<h2>Welcome @Model.FirstName @Model.LastName</h2>
+<p>An email was sent to @Model.Email (Not Really)</p>
 <p>What would you like to order today?</p>
+<p>Enjoy 10% off discount on @Model.Flavor</p>
+
+
+@{
+    if (Model.Lactose)
+    {
+        <p>We will prepare your drinks with Oat Milk!</p>
+    }
+}

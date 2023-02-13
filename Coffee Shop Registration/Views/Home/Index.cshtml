@@ -1,8 +1,22 @@
-﻿@{
+﻿@model List<Product>
+@{
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+    <h1 style="text-align:center;color:peru">TEE's GRIND</h1>
+    <h2 style="text-align:center;color:peru">COFFEE & ESPRESSO</h2>
+    <h4 style="text-align:center">CHECK THE LIST FOR TODAY'S COFFEE SELECTION.</h4>
+    <h4 style="text-align:center">ALL AVAILABLE ICED.</h4>
+
+
+@{
+    foreach(Product p in Model)
+    {
+        <a class="nav-link text-dark" asp-action="ProductDetails" asp-route-id="@p.Id">
+        <div>
+            <p>@p.Name: $@p.Price</p>
+
+        </div>
+        </a>
+    }
+}
