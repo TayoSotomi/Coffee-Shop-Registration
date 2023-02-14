@@ -12,11 +12,11 @@
 @{
     foreach(Product p in Model)
     {
-        <a class="nav-link text-dark" asp-action="ProductDetails" asp-route-id="@p.Id">
+        
         <div>
-            <p>@p.Name: $@p.Price</p>
+            <p><a class="nav-link text-dark" asp-action="ProductDetails" asp-route-id="@p.Id">@p.Name</a> $@p.Price</p>
 
         </div>
-        </a>
+        
     }
 }

@@ -26,7 +26,7 @@ namespace Coffee_Shop_Registration.Controllers
         }
         public IActionResult ProductDetails(int Id)
         {
-            Product result = dbContext.Products.FirstOrDefault(p => p.Id == Id);
+            Product result = dbContext.Products.Find(Id);
             return View(result);
         }
         public IActionResult Result(NewUser N)
